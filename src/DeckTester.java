@@ -77,8 +77,8 @@ public class DeckTester {
         System.out.println();
         System.out.println();
 
-        System.out.println("**** Deal Remaining 5 Cards ****");
-        for (int i = 0; i < 5; i++) {
+        System.out.println("**** Deal Remaining 52 Cards ****");
+        for (int i = 0; i < 51; i++) {
             System.out.println("  deal: " + deck.deal());
         }
         System.out.println();
