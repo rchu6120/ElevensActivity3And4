@@ -1,3 +1,6 @@
+import java.util.List;
+import java.lang.reflect.Array;
+
 /**
  * This class provides a convenient way to test shuffling methods.
  */
@@ -81,6 +84,26 @@ public class Shuffler {
             int temp = shuffled[r];
             shuffled[k] = temp;
             shuffled[k] = shuffled[r];
+        }
+    }
+
+    /**
+     * Apply an "efficient selection shuffle" to the argument.
+     * The selection shuffle algorithm conceptually maintains two sequences
+     * of cards: the selected cards (initially empty) and the not-yet-selected
+     * cards (initially the entire deck). It repeatedly does the following until
+     * all cards have been selected: randomly remove a card from those not yet
+     * selected and add it to the selected cards.
+     * An efficient version of this algorithm makes use of arrays to avoid
+     * searching for an as-yet-unselected card.
+     * @param values is an array of integers simulating cards to be shuffled.
+     */
+    public static void selectionShuffle(List<Card> values) {
+        for (int k = values.size() - 1; k > 0; k--) {
+            int r = (int) (Math.random() * k);
+            Card temp = values.get(r);
+            values.set(r, values.get(k));
+            values.set(k, temp);
         }
     }
 
